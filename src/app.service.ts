@@ -16,10 +16,11 @@ export class AppService {
     console.log(header_end-header_start)
     console.log(Object.values(data).length)
     const arr = []
-    for(let i = 0;i<10000;i++){
+    for(let i = 0;i<Object.values(data).length;i++){
         arr.push(data[i]);
     }
     const buff = new Uint8Array(arr);
+    console.log(buff.byteLength);
     // this.chunks.concat(data, header_total);
     appendFileSync('./new.jpg', buff);
     return 'true';
