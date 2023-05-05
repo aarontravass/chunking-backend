@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Res, Headers } from '@nestjs/common';
+import { Controller, Post, Body, Res, Headers } from '@nestjs/common';
 import { AppService } from './app.service';
 import { Response } from 'express';
 @Controller()
@@ -12,6 +12,8 @@ export class AppController {
 	@Headers('header_end') header_end,  
 	@Headers('header_total') header_total,
 	@Res() res: Response) {
+    
+    
 	return res.send(this.appService.post(body.data, parseInt(header_start), parseInt(header_end), parseInt(header_total)));
   }
 }
